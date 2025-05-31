@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UmbraCare - AI-powered Healthcare for Women</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+
+</head>
+<body>
+  <header>
+    UMBRACARE
+    <span class="tagline">Predict. Plan. Prosper.</span>
+  </header>
+
+  <main>
+    <!-- Pregnancy Risk Predictor -->
+    <section class="risk-predictor">
+      <h2>🤰 Pregnancy Risk Predictor</h2>
+      <p class="intro">Enter your data to get a personalized pregnancy risk insight.</p>
+      <form id="pregnancyForm">
+        <label>Age
+          <input type="number" id="age" min="12" max="50" required />
+        </label>
+        <label>BMI (Body Mass Index)
+          <input type="number" id="bmi" min="10" max="50" step="0.1" required />
+        </label>
+        <label>Number of Previous Pregnancies
+          <input type="number" id="pregCount" min="0" max="10" required />
+        </label>
+        <label>Smoking Status
+          <select id="smoking" required>
+            <option value="">Select</option>
+            <option value="no">Non-smoker</option>
+            <option value="yes">Smoker</option>
+          </select>
+        </label>
+        <button type="submit">Predict Risk</button>
+      </form>
+      <div id="riskResult" aria-live="polite"></div>
+    </section>
+
+    <!-- Menstrual Tracker -->
+    <section class="menstrual-tracker">
+      <h2>🩸 Menstrual Cycle & Phase Tracker</h2>
+      <p class="intro">Log the first day of your last period and your average cycle length.</p>
+      <label>Last Period Start Date:
+        <input type="date" id="lastPeriodDate" required />
+      </label>
+      <label style="margin-left:1rem;">Average Cycle Length (days):
+        <input type="number" id="cycleLength" min="20" max="45" value="28" required />
+      </label>
+      <button id="calculateCycleBtn">Calculate Next Phases</button>
+      <div class="cycle-info" id="cycleInfo"></div>
+    </section>
+
+    <!-- AI Chatbot -->
+    <section class="chatbot">
+      <h2>💬 AI Chatbot for Health Tips & Irregularity Detection</h2>
+      <div class="chat-messages" id="chatMessages" aria-live="polite" aria-label="Chat messages"></div>
+      <form id="chatForm" class="chat-input" aria-label="Chat input form">
+        <input type="text" id="chatInput" placeholder="Type your message here..." autocomplete="off" required />
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+    <!-- Real-time Health Dashboard -->
+    <section class="dashboard">
+      <h2>📊 Real-time Health Dashboards</h2>
+      <div class="dashboard-cards" id="dashboardCards">
+        <div class="card">
+          <h3>Heart Rate</h3>
+          <p class="value" id="heartRateValue">72 bpm</p>
+        </div>
+        <div class="card">
+          <h3>Step Count Today</h3>
+          <p class="value" id="stepCountValue">Loading...</p>
+
+ <script>
+    fetch("https://docs.google.com/spreadsheets/d/1EPbpJU5pkTGrDn_MXRB_1WZC5aqhGNNRApenQKROKUU/gviz/tq?tqx=out:json")
+      .then(res => res.text())
+      .then(data => {
+        const json = JSON.parse(data.substring(47).slice(0, -2));
+        const steps = json.table.rows[0].c[1].v;
+        document.getElementById("stepCountValue").textContent = steps;
+      })
+      .catch(error => {
+        document.getElementById("stepCountValue").textContent = "Error loading data.";
+        console.error("Fetch error:", error);
+      });
+  </script>
+
+        </div>
+        <div class="card">
+          <h3>Sleep Last Night</h3>
+          <p class="value" id="sleepHoursValue">7.8 hrs</p>
+        </div>
+      </div>
+      
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+      <h3>📧 Your Adaptive Newsletter</h3>
+      <p id="newsletterContent">Subscribe to get personalized health tips tailored for your cycle and stage of womanhood.</p>
+      <button id="subscribeBtn">Subscribe</button>
+    </section>
+  </main>
+
+</body>
+</html>

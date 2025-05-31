@@ -1,0 +1,266 @@
+
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f9f6f8, #e4f1fa);
+    color: #333;
+  }
+  header {
+    background: #6b4cff;
+    color: white;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: 1.5px;
+    user-select: none;
+  }
+  header span.tagline {
+    font-weight: 400;
+    font-size: 1rem;
+    display: block;
+    margin-top: 0.4rem;
+    font-style: italic;
+  }
+
+  main {
+    max-width: 900px;
+    margin: 2rem auto 4rem;
+    padding: 0 1.5rem;
+  }
+
+  section {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgb(0 0 0 / 0.08);
+    padding: 2rem 2rem 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+  section h2 {
+    color: #6b4cff;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+   section p.intro {
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Pregnancy Risk Predictor */
+  .risk-predictor form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .risk-predictor label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #444;
+  }
+  .risk-predictor input[type="number"],
+  .risk-predictor select {
+    margin-top: 0.3rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1.5px solid #ccc;
+    transition: border-color 0.3s ease;
+  }
+  .risk-predictor input[type="number"]:focus,
+  .risk-predictor select:focus {
+    outline: none;
+    border-color: #6b4cff;
+  }
+  .risk-predictor button {
+    grid-column: span 2;
+    background: #6b4cff;
+    border: none;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .risk-predictor button:hover {
+    background: #543dcf;
+  }
+  #riskResult {
+    font-weight: 700;
+    color: #6b4cff;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+
+  /* Menstrual Tracker */
+  .menstrual-tracker input[type="date"] {
+    font-size: 1rem;
+    padding: 0.6rem 0.5rem;
+    border-radius: 6px;
+    border: 1.5px solid #ccc;
+    margin-right: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  .menstrual-tracker input[type="date"]:focus {
+    outline: none;
+    border-color: #6b4cff;
+  }
+  .menstrual-tracker button {
+    background: #6b4cff;
+    border: none;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .menstrual-tracker button:hover {
+    background: #543dcf;
+  }
+  .cycle-info {
+    margin-top: 1rem;
+    font-weight: 600;
+    color: #6b4cff;
+  }
+
+  /* Chatbot */
+  .chatbot {
+    border: 2px solid #6b4cff;
+    border-radius: 12px;
+    max-height: 320px;
+    display: flex;
+    flex-direction: column;
+    background: #f7f9ff;
+  }
+  .chat-messages {
+    padding: 1rem;
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+  .message {
+    max-width: 75%;
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+  .message.user {
+    background: #6b4cff;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+  }
+  .message.bot {
+    background: #dedcff;
+    color: #333;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+  }
+  .chat-input {
+    display: flex;
+    border-top: 1px solid #6b4cff;
+  }
+  .chat-input input[type="text"] {
+    flex-grow: 1;
+    border: none;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border-radius: 0 0 0 12px;
+    outline: none;
+    background: white;
+  }
+  .chat-input button {
+    background: #6b4cff;
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0 1.5rem;
+    cursor: pointer;
+    border-radius: 0 0 12px 0;
+    transition: background-color 0.3s ease;
+  }
+  .chat-input button:hover {
+    background: #543dcf;
+  }
+
+  /* Dashboard */
+  .dashboard-cards {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .card {
+    background: #6b4cff;
+    color: white;
+    flex: 1 1 280px;
+    padding: 1.5rem 1.8rem;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgb(107 76 255 / 0.25);
+  }
+  .card h3 {
+    margin-top: 0;
+    margin-bottom: 0.7rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 0.03em;
+  }
+  .card p.value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  /* Newsletter */
+  .newsletter {
+    background: #e4f1fa;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    color: #2a2a2a;
+  }
+  .newsletter h3 {
+    margin-top: 0;
+    color: #6b4cff;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+  }
+  .newsletter p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .newsletter button {
+    background: #6b4cff;
+    border: none;
+    color: white;
+    font-weight: 700;
+    padding: 0.8rem 1.6rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  .newsletter button:hover {
+    background: #543dcf;
+  }
+
+  /* Responsive */
+  @media(max-width: 720px) {
+    main {
+      margin: 1.2rem;
+    }
+    .risk-predictor form {
+      grid-template-columns: 1fr;
+    }
+    .risk-predictor button {
+      grid-column: span 1;
+    }
+    .dashboard-cards {
+      flex-direction: column;
+    }
+  }                  
