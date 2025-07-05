@@ -1,14 +1,9 @@
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
-import os
+
 app = Flask(__name__)
 CORS(app)
-
-@app.route("/")
-def index():
-    chatbot_id = os.getenv("yr0ojApnlm1dm0IkYM_UQ")  # Or whatever you named it
-    return render_template("index.html", chatbot_id=chatbot_id)
-    
+  
 @app.route('/')
 def index():
     return render_template('index.html')
