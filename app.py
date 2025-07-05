@@ -5,7 +5,7 @@ import os
 app = Flask(__name__, static_folder='static', template_folder='templates')
 CORS(app)
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai.api_key = os.getenv("2tjs5s02rw1wl8iye2mdc1dshsxxs487")
 @app.route('/')
 def index():
     return render_template('index.html')
